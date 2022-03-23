@@ -12,11 +12,13 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private float term_vel;
 
 	public CursorControll cursor;
+	public Transform body;
 	private Rigidbody2D rb2d;
 
 	private bool jump;
 	private bool grounded;
 	private bool ceiling;
+	private bool back;
 	private float jump_sustained;
 	private float x_speed = 0, y_speed = 0;
 
@@ -26,11 +28,13 @@ public class PlayerController : MonoBehaviour
 		rb2d = GetComponent<Rigidbody2D>();
 		jump = false;
 		jump_sustained = jump_sustain;
+		back = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
 	{
+		body.localScale = new Vector3(back?1:-1, 1, 1);
 
 		if (!grounded && y_speed > term_vel)
 		{
@@ -55,6 +59,8 @@ public class PlayerController : MonoBehaviour
 	void OnMove(InputValue v)
 	{
 		x_speed = v.Get<Vector2>().x * speed;
+		if (x_speed > 0) back = false;
+		else if (x_speed < 0) back = true;
 	}
 
 	void OnLook(InputValue v)
