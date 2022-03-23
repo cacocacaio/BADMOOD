@@ -12,10 +12,12 @@ public class WeaponInterface : MonoBehaviour
 	public GameObject projectile;
 	public GameObject special_projectile;
 
+	private Transform angle;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+		angle = GetComponentInParent<Transform>();
     }
 
     // Update is called once per frame
@@ -24,13 +26,13 @@ public class WeaponInterface : MonoBehaviour
         
     }
 
-	public void Shoot()
+	public float Shoot(float r)
 	{
-
+		return recoil + r;
 	}
 
-	public void SpecialShoot()
+	public float SpecialShoot(float r)
 	{
-
+		return recoil + r;
 	}
 }

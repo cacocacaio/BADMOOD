@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 
 	public CursorControll cursor;
 	public Transform body;
+	public AimScript weapon;
 	private Rigidbody2D rb2d;
 
 	private bool jump;
@@ -66,6 +67,11 @@ public class PlayerController : MonoBehaviour
 	void OnLook(InputValue v)
 	{
 		cursor.OnLook(v.Get<Vector2>());
+	}
+
+	void OnFire()
+	{
+		weapon.Shoot();
 	}
 
 	void GroundCheckIn()

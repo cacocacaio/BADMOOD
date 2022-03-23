@@ -54,6 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Outdated\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Weapons\WeaponInterface.cs" />
     <Compile Include="Assets\Scripts\CursorControll.cs" />
     <Compile Include="Assets\Scripts\CollisionCheck.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
@@ -65,7 +66,7 @@
     <Compile Include="Assets\Scripts\AimScript.cs" />
     <Compile Include="Assets\Scripts\Outdated\CharacterController2D.cs" />
     <Compile Include="Assets\Scripts\BulletBehaviour.cs" />
-    <Compile Include="Assets\Scripts\WeaponInterface.cs" />
+    <Compile Include="Assets\Scripts\Weapons\TestGun.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
