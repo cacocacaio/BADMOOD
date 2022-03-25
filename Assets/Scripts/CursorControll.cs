@@ -7,7 +7,7 @@ public class CursorControll : MonoBehaviour
 {
 
     private Animator anim;
-    public AimObject gun;
+    public AimScript gun;
 
 	private Vector2 cursor_pos;
 
@@ -15,6 +15,7 @@ public class CursorControll : MonoBehaviour
     {
 		cursor_pos = Vector2.zero;
         Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
         //anim = GetComponent<Animator>();
     }
 	

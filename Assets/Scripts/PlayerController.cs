@@ -51,10 +51,15 @@ public class PlayerController : MonoBehaviour
 		rb2d.velocity = new Vector2(x_speed, y_speed);
     }
 
-	void OnJump()
+	void OnJumpOn()
 	{
 		if (!grounded && !jump) return;
-		jump = !jump;
+		jump = true;
+	}
+
+	void OnJumpOff()
+	{
+		jump = false;
 	}
 
 	void OnMove(InputValue v)
@@ -79,6 +84,7 @@ public class PlayerController : MonoBehaviour
 		grounded = true;
 		y_speed = 0;
 		jump_sustained = jump_sustain;
+		jump = false;
 	}
 
 	void GroundCheckOut()

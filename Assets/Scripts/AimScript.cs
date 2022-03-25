@@ -17,13 +17,14 @@ public class AimScript : MonoBehaviour
     void Start()
     {
 		weapon = GetComponentInChildren<WeaponInterface>();
+		recoil = 0;
     }
 
 	private void FixedUpdate()
 	{
 		angle = (Mathf.Rad2Deg * Mathf.Atan2((center.position.y - cursor.position.y), (center.position.x - cursor.position.x)));
 		angle += Mathf.Abs(angle) > 90 ? recoil : -recoil;
-		recoil -= recover_speed;
+		recoil = recoil > 0 ? recoil - recover_speed : 0;
 	}
 
 	private void Update()

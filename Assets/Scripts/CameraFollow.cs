@@ -18,7 +18,7 @@ public class CameraFollow : MonoBehaviour
     
     void FixedUpdate()
     {
-		Vector2 position = Vector2.ClampMagnitude(Vector2.Lerp(focus1.position, focus2.position, 0.5f), distance);
+		Vector2 position = focus1.position + Vector3.ClampMagnitude(focus2.position - focus1.position, distance);
 		transform.position = Vector2.Lerp(transform.position, position, smoothing);
     }
 }
