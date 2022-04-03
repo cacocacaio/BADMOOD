@@ -390,6 +390,7 @@ GameObject:
   - component: {fileID: 524041770}
   - component: {fileID: 524041771}
   - component: {fileID: 524041772}
+  - component: {fileID: 524041774}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -505,14 +506,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172c4c85355b24044ba183016d00c8dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
-  air_speed: 5
-  jump_speed: 30
-  jump_sustain: 15
-  term_vel: -70
+  jump_sustain: 10
   cursor: {fileID: 1927633325}
   body: {fileID: 195840274}
   weapon: {fileID: 1508484118}
+--- !u!114 &524041774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524041768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d15fb8edb3462684991ea645a4b424a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max_speed: 40
+  max_fall_speed: 90
+  acceleration: 0.5
+  air_acceleration: 0.1
+  jump_speed: 18
 --- !u!1 &590822632
 GameObject:
   m_ObjectHideFlags: 0
@@ -961,6 +975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4eb3bcf214728429bd65136f3bbb95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 381861483}
   gun: {fileID: 1508484118}
 --- !u!4 &1927633326
 Transform:

@@ -5,31 +5,31 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-	[SerializeField] private float speed;
-	[SerializeField] private float air_speed;
-	[SerializeField] private float jump_speed;
 	[SerializeField] private float jump_sustain;
-	[SerializeField] private float term_vel;
+	[SerializeField] private float dash_cooldown;
+	[SerializeField] private float dash_count;
 
 	public CursorControll cursor;
 	public Transform body;
 	public AimScript weapon;
 	private Rigidbody2D rb2d;
-
-	private bool jump;
-	private bool grounded;
-	private bool ceiling;
+	private PhysicsInterface p;
+	
 	private bool back;
 	private float jump_sustained;
-	private float x_speed = 0, y_speed = 0;
+	private float dash_recovery;
+	private float dash_stored;
+	private float x = 0, y = 0;
 
 	// Start is called before the first frame update
 	void Awake()
     {
 		rb2d = GetComponent<Rigidbody2D>();
-		jump = false;
+		p = GetComponent<PhysicsInterface>();
 		jump_sustained = jump_sustain;
 		back = false;
+		dash_recovery = 0;
+		dash_stored = dash_count;
     }
 
     // Update is called once per frame
@@ -37,36 +37,66 @@ public class PlayerController : MonoBehaviour
 	{
 		body.localScale = new Vector3(back?1:-1, 1, 1);
 
-		if (!grounded && y_speed > term_vel)
+		if (y == 1 && jump_sustained > 0)
 		{
-			y_speed -= (5);
+			jump_sustained--;
+		}
+		else if (jump_sustained <= 0)
+		{
+			jump_sustained = jump_sustain;
+			y = 0;
 		}
 
-		if (jump && jump_sustained > 0)
+		if (dash_recovery == 0)
 		{
-			y_speed = jump_speed;
-			jump_sustained --;
+			if ()
+			{
+
+			}
+		}
+		else
+		{
+			dash_recovery--;
 		}
 
-		rb2d.velocity = new Vector2(x_speed, y_speed);
-    }
+		rb2d.velocity = p.Move(x, y);
+		if (rb2d.velocity.x > 0) back = false;
+		else if (rb2d.velocity.x < 0) back = true;
+	}
+
+	void OnDashUp()
+	{
+
+	}
+
+	void OnDashDown()
+	{
+
+	}
+
+	void OnDashRight()
+	{
+
+	}
+
+	void OnDashLeft()
+	{
+
+	}
 
 	void OnJumpOn()
 	{
-		if (!grounded && !jump) return;
-		jump = true;
+		y = 1;
 	}
 
 	void OnJumpOff()
 	{
-		jump = false;
+		y = 0;
 	}
 
 	void OnMove(InputValue v)
 	{
-		x_speed = v.Get<Vector2>().x * speed;
-		if (x_speed > 0) back = false;
-		else if (x_speed < 0) back = true;
+		if (x != 2) x = Mathf.Clamp(v.Get<Vector2>().x, -1, 1);
 	}
 
 	void OnLook(InputValue v)
@@ -77,30 +107,5 @@ public class PlayerController : MonoBehaviour
 	void OnFire()
 	{
 		weapon.Shoot();
-	}
-
-	void GroundCheckIn()
-	{
-		grounded = true;
-		y_speed = 0;
-		jump_sustained = jump_sustain;
-		jump = false;
-	}
-
-	void GroundCheckOut()
-	{
-		grounded = false;
-	}
-
-	void CeilingCheckIn()
-	{
-		ceiling = true;
-		jump = false;
-		y_speed = 0;
-	}
-
-	void CeilingCheckOut()
-	{
-		ceiling = false;
 	}
 }

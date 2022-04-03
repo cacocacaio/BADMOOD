@@ -60,12 +60,39 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Dash",
+                    "name": "DashUp",
                     "type": "Button",
                     "id": "fae6c92d-5805-41bc-bf02-3efa0d8defa8",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "MultiTap",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DashDown",
+                    "type": "Button",
+                    "id": "3c7c8024-bbe2-4766-87ca-a1a38e6c64bb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "MultiTap",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DashRight",
+                    "type": "Button",
+                    "id": "9a06eaa8-633a-4d69-939c-8c7900f98864",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "MultiTap",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DashLeft",
+                    "type": "Button",
+                    "id": "dd4e95d6-5639-4e0f-a90c-e659b66b840c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "MultiTap",
                     "initialStateCheck": false
                 },
                 {
@@ -234,61 +261,6 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "WASD",
-                    "id": "7258a3f6-a55d-4bc3-bb28-b07c9b41fd3f",
-                    "path": "Dpad(mode=1)",
-                    "interactions": "MultiTap",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Dash",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "left",
-                    "id": "ef616e68-e3a1-4809-8f51-a0a009b6d91f",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Dash",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "807d6bc9-1ccf-4aa4-be87-65b0ad1a733f",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Dash",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "up",
-                    "id": "616cfb83-0c6b-48c7-946c-112cdc008b8c",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Dash",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "33299e25-2d15-490f-9181-d4cf6117cd54",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Dash",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "62c639d8-051a-4d58-b99f-0417945ba208",
                     "path": "<Keyboard>/space",
@@ -318,6 +290,50 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "JumpOff",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f72aba8d-1ef8-49c6-ba21-b0b4941480df",
+                    "path": "<Keyboard>/w",
+                    "interactions": "MultiTap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DashUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "97b78ddc-5a92-481e-8e8d-d44a81d06805",
+                    "path": "<Keyboard>/s",
+                    "interactions": "MultiTap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DashDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ff2a5327-c03f-4d4e-8d44-99faf3666bc0",
+                    "path": "<Keyboard>/d",
+                    "interactions": "MultiTap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DashRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c45a0780-e300-41c7-9920-1a3744013596",
+                    "path": "<Keyboard>/a",
+                    "interactions": "MultiTap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DashLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

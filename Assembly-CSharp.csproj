@@ -55,20 +55,21 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Outdated\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Weapons\WeaponInterface.cs" />
+    <Compile Include="Assets\Scripts\Weapons\ProjectileInterface.cs" />
     <Compile Include="Assets\Scripts\CursorControll.cs" />
     <Compile Include="Assets\Scripts\CollisionCheck.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\CharacterPhysics.cs" />
     <Compile Include="Assets\Scripts\ListOfSpriteList.cs" />
     <Compile Include="Assets\Scripts\Outdated\AimObject.cs" />
     <Compile Include="Assets\Scripts\GenerateNpc.cs" />
     <Compile Include="Assets\Scripts\AimScript.cs" />
     <Compile Include="Assets\Scripts\Outdated\CharacterController2D.cs" />
+    <Compile Include="Assets\Scripts\Weapons\TestProjectile.cs" />
     <Compile Include="Assets\Scripts\Weapons\TestGun.cs" />
     <Compile Include="Assets\Scripts\BulletBehaviour.cs" />
-    <Compile Include="Assets\Scripts\Weapons\TestProjectile.cs" />
-    <Compile Include="Assets\Scripts\Weapons\ProjectileInterface.cs" />
+    <Compile Include="Assets\Scripts\CharacterPhysics.cs" />
+    <Compile Include="Assets\Scripts\PhysicsInterface.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
