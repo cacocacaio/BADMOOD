@@ -5,28 +5,29 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-	[SerializeField] private float jump_sustain;
-	[SerializeField] private float dash_cooldown;
-	[SerializeField] private float dash_count;
+	[SerializeField] private int dash_cooldown;
+	[SerializeField] private int dash_count;
+	[SerializeField] private float dash_input_cooldown;
 
 	public CursorControll cursor;
 	public Transform body;
 	public AimScript weapon;
+
 	private Rigidbody2D rb2d;
 	private PhysicsInterface p;
-	
-	private bool back;
-	private float jump_sustained;
-	private float dash_recovery;
-	private float dash_stored;
+
 	private float x = 0, y = 0;
+	private bool back;
+	private int dash_recovery;
+	private int dash_stored;
+	private float dash_input_timer;
+	private Vector2 dash_input_last;
 
 	// Start is called before the first frame update
 	void Awake()
     {
 		rb2d = GetComponent<Rigidbody2D>();
 		p = GetComponent<PhysicsInterface>();
-		jump_sustained = jump_sustain;
 		back = false;
 		dash_recovery = 0;
 		dash_stored = dash_count;
@@ -37,24 +38,14 @@ public class PlayerController : MonoBehaviour
 	{
 		body.localScale = new Vector3(back?1:-1, 1, 1);
 
-		if (y == 1 && jump_sustained > 0)
-		{
-			jump_sustained--;
-		}
-		else if (jump_sustained <= 0)
-		{
-			jump_sustained = jump_sustain;
-			y = 0;
-		}
-
 		if (dash_recovery == 0)
 		{
-			if ()
+			if (dash_stored < dash_count)
 			{
-
+				dash_stored++;
+				dash_recovery = dash_cooldown;
 			}
-		}
-		else
+		}else
 		{
 			dash_recovery--;
 		}
@@ -64,24 +55,25 @@ public class PlayerController : MonoBehaviour
 		else if (rb2d.velocity.x < 0) back = true;
 	}
 
-	void OnDashUp()
+	void OnDash(InputValue v)
 	{
-
-	}
-
-	void OnDashDown()
-	{
-
-	}
-
-	void OnDashRight()
-	{
-
-	}
-
-	void OnDashLeft()
-	{
-
+		Vector2 input = v.Get<Vector2>();
+		float time = Time.time;
+		if (input.Equals(Vector2.zero)) return;
+		if (!dash_input_last.Equals(input) || time - dash_input_timer >= dash_input_cooldown)
+		{
+			dash_input_last = input;
+			dash_input_timer = Time.time;
+		}else
+		{
+			if (dash_stored > 0)
+			{
+				//Debug.Log("dash to " + dash_input_last);
+				rb2d.velocity = p.ForceSpeed(dash_input_last);
+				dash_stored--;
+				dash_input_last = Vector2.zero;
+			}
+		}
 	}
 
 	void OnJumpOn()
@@ -96,7 +88,7 @@ public class PlayerController : MonoBehaviour
 
 	void OnMove(InputValue v)
 	{
-		if (x != 2) x = Mathf.Clamp(v.Get<Vector2>().x, -1, 1);
+		x = v.Get<Vector2>().x;
 	}
 
 	void OnLook(InputValue v)
