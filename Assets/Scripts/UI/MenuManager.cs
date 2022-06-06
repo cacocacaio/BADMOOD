@@ -19,7 +19,7 @@ public class MenuManager : MonoBehaviour
         
     }
 
-	public void OnPlay()
+	public void Play()
 	{
 
 	}

@@ -7,4 +7,8 @@ public interface WeaponInterface
 	float Shoot(float r);
 
 	float SpecialShoot(float r);
+
+	void idle();
+
+	void shot();
 }

@@ -24,6 +24,8 @@ public class CharacterPhysics : MonoBehaviour, PhysicsInterface
 	private float health;
 	private bool invulnerable;
 
+	public Transform body;
+
 	private Vector2 v;
 
 	void Awake()
@@ -97,6 +99,15 @@ public class CharacterPhysics : MonoBehaviour, PhysicsInterface
 			{
 				control = true;
 			}
+		}
+
+		if (v.x > 0)
+		{
+			body.localScale = new Vector3(-1, 1, 1);
+		}
+		else if (v.x < 0)
+		{
+			body.localScale = new Vector3(1, 1, 1);
 		}
 	}
 

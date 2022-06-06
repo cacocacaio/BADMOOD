@@ -10,14 +10,12 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private float dash_input_cooldown;
 
 	public CursorControll cursor;
-	public Transform body;
 	public AimScript weapon;
 
 	private Rigidbody2D rb2d;
 	private PhysicsInterface p;
 
 	private float x = 0, y = 0;
-	private bool back;
 	private int dash_recovery;
 	private int dash_stored;
 	private float dash_input_timer;
@@ -28,7 +26,6 @@ public class PlayerController : MonoBehaviour
     {
 		rb2d = GetComponent<Rigidbody2D>();
 		p = GetComponent<PhysicsInterface>();
-		back = false;
 		dash_recovery = 0;
 		dash_stored = dash_count;
     }
@@ -36,8 +33,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
 	{
-		body.localScale = new Vector3(back?1:-1, 1, 1);
-
 		if (dash_recovery == 0)
 		{
 			if (dash_stored < dash_count)
@@ -51,8 +46,6 @@ public class PlayerController : MonoBehaviour
 		}
 
 		rb2d.velocity = p.Move(x, y);
-		if (rb2d.velocity.x > 0) back = false;
-		else if (rb2d.velocity.x < 0) back = true;
 	}
 
 	void OnDash(InputValue v)

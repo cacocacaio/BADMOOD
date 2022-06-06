@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7702718208971703028}
   - component: {fileID: 3878354618388609883}
+  - component: {fileID: 6385872976158515503}
   m_Layer: 0
   m_Name: BaseWeapon
   m_TagString: Untagged
@@ -49,10 +50,35 @@ MonoBehaviour:
   special_recoil: 5
   cooldown: 5
   projectile_spawn_position: {fileID: 825564302370513827}
+  sprites:
+  - {fileID: 21300130, guid: 81475b2b0df5552459f3c8458f4f670a, type: 3}
+  - {fileID: 21300126, guid: 81475b2b0df5552459f3c8458f4f670a, type: 3}
+  sprites_shoot:
+  - {fileID: 21300132, guid: 81475b2b0df5552459f3c8458f4f670a, type: 3}
+  - {fileID: 21300128, guid: 81475b2b0df5552459f3c8458f4f670a, type: 3}
   projectile: {fileID: 5679483303801762664, guid: 32cc0aca2abfc774abb0e79aaeb5db74,
     type: 3}
   special_projectile: {fileID: 5679483303801762664, guid: 32cc0aca2abfc774abb0e79aaeb5db74,
     type: 3}
+--- !u!95 &6385872976158515503
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7917506423039388015}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c8e4f3d425930be4786444a4c7a665d1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8573292066616097181
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,7 +104,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8573292066616097181}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 0, z: 0}
+  m_LocalPosition: {x: -0.7, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7702718208971703028}
@@ -123,10 +149,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1583194709
   m_SortingLayer: 4
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 2747690628134850419, guid: 16037dbd798344f57a526d53d48f5ead,
-    type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 21300130, guid: 81475b2b0df5552459f3c8458f4f670a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -160,7 +185,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9057554922739574392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: -1.1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7702718208971703028}
